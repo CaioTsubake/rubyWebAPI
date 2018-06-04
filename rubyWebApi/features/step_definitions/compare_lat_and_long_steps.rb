@@ -32,3 +32,21 @@ Then("it should return the list of hospitals inside those coordinates") do
 
     assert_equal @result, @expected_result
 end
+
+Given("the user has coordinate values with a great number of decimal places") do
+  @latitude = -23.604936
+  @longitude = -46.692999
+end
+
+When("the program receives these values") do
+  @latitude = round_coordinate(@latitude)
+  @longitude = round_coordinate(@longitude)  
+end
+
+Then("the values should be rounded-up from the second decimal place") do
+  @expected_latitude = -23.60
+  @expected_longitude = -46.70
+
+  assert_equal @latitude, @expected_latitude
+  assert_equal @longitude, @expected_longitude
+end

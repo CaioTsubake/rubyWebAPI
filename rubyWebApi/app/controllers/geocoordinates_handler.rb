@@ -19,4 +19,8 @@ module GeocoordinatesHandler
       }]
     return @hopitals_list
   end
+
+  def round_coordinate(coordinate)
+    return coordinate.round(1)
+  end
 end
